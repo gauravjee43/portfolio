@@ -144,16 +144,63 @@ button,a{max-width:100%;overflow-wrap:anywhere}
 @media(min-width:768px) and (max-width:1023px){
   #bento{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
+
+/* Full-width layout overrides */
+html, body{width:100%;max-width:100%;margin:0;padding:0;overflow-x:hidden}
+body{width:100%;margin:0;padding:0;overflow-x:hidden}
+.wrap, header, main, main>section, main>div, footer,
+.sec, .sec-w, .sec-i, .container{
+  width:100%!important;
+  max-width:100%!important;
+  margin-left:0!important;
+  margin-right:0!important;
+}
+.wrap{border-radius:0}
+header{border-radius:0}
+main>.space-y-10{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding-left:0;
+  padding-right:0;
+}
+main>.space-y-10>section{
+  width:100%!important;
+  max-width:none!important;
+  margin-left:0!important;
+  margin-right:0!important;
+  padding-left:clamp(16px,3vw,48px)!important;
+  padding-right:clamp(16px,3vw,48px)!important;
+}
+.hero{
+  width:100%!important;
+  max-width:none!important;
+  grid-template-columns:minmax(0,60fr) minmax(0,40fr)!important;
+  column-gap:20px!important;
+  padding-left:clamp(16px,3vw,48px)!important;
+  padding-right:clamp(16px,3vw,48px)!important;
+}
+.hero-in,.stage{min-width:0;width:100%;max-width:none}
+.stage{margin:0}
+.hero-in p{max-width:none}
+#bento{width:100%;max-width:none}
+footer{width:100%!important;max-width:none!important;margin:0!important;padding-left:clamp(16px,3vw,48px);padding-right:clamp(16px,3vw,48px)}
+@media(max-width:767px){
+  .hero{display:flex;flex-direction:column-reverse;gap:24px!important}
+  .stage{width:min(100%,440px);max-width:100%}
+  main>.space-y-10>section{padding-left:16px!important;padding-right:16px!important}
+}
+
 </style>
 </head>
-<body>
+<body class="w-full m-0 p-0 overflow-x-hidden">
 <div id="pb" aria-hidden="true"></div><div id="toast" role="status"></div>
 <svg width="0" height="0" style="position:absolute"><defs><symbol id="wai" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.8 14.1c-.2.7-1.4 1.3-1.9 1.3-.5.1-1.1.1-3.5-.8-2.9-1.2-4.700-4.100-4.900-4.300-.1-.2-1.200-1.600-1.200-3s.8-2.100 1-2.400c.3-.3.600-.3.800-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.200.1.400 0 .500l-.4.600-.4.500c-.1.200-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.200 1 2.100 1.300 2.400 1.500.3.100.5.100.6-.1l.9-1.100c.2-.2.400-.2.600-.1l1.900.9c.3.100.5.200.5.300.1.200.1.800-.1 1.500Z"/></symbol></defs></svg>
 
-<div class="mx-auto flex justify-end items-center gap-2 px-4 sm:px-6 lg:px-8 py-2 w-full" style="max-width:1600px" role="group" aria-label="Language"><span class="text-xs t2" aria-hidden="true">🌐</span><button class="chip" data-l="en" aria-pressed="true" style="padding:3px 12px;font-size:13px">English</button><button class="chip" data-l="hi" aria-pressed="false" style="padding:3px 12px;font-size:13px">Hinglish</button></div>
+<div class="w-full max-w-none mx-0 px-4 sm:px-8 lg:px-12 flex justify-end items-center gap-2 py-2" role="group" aria-label="Language"><span class="text-xs t2" aria-hidden="true">🌐</span><button class="chip" data-l="en" aria-pressed="true" style="padding:3px 12px;font-size:13px">English</button><button class="chip" data-l="hi" aria-pressed="false" style="padding:3px 12px;font-size:13px">Hinglish</button></div>
 <div class="wrap">
 <header>
- <div class="flex items-center justify-between gap-2 px-4 sm:px-6 lg:px-8 py-3 w-full">
+ <div class="w-full max-w-none mx-0 px-4 sm:px-8 lg:px-12 flex items-center justify-between gap-2 py-3">
   <a href="#top" class="flex items-center gap-2 font-extrabold text-xl sm:text-2xl tracking-tight" style="color:var(--tx);text-decoration:none">GAURAV <span class="logo-a" aria-hidden="true">A</span></a>
   <div class="flex items-center gap-2 sm:gap-4">
    <div class="flex gap-2 sm:gap-3" role="group" aria-label="Theme">
@@ -167,12 +214,12 @@ button,a{max-width:100%;overflow-wrap:anywhere}
 </header>
 
 <main id="top">
-<section class="hero grid md:grid-cols-[55fr_45fr] gap-10 items-center px-4 sm:px-6 lg:px-8 pt-8 pb-10 w-full" aria-label="Introduction">
+<section class="hero grid md:grid-cols-[60fr_40fr] gap-5 items-center w-full max-w-none mx-0 px-4 sm:px-8 lg:px-12 pt-8 pb-10" aria-label="Introduction">
  <div class="hero-in">
   <p class="badge"><span class="dot"></span>Available for Freelance</p>
   <h1 class="mt-6 text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight">I build clean, fast<br><span class="ac">websites for brands</span></h1>
   <p class="mt-4 font-semibold">Full-Stack Designer • Lucknow, India</p>
-  <p class="mt-2 t2 max-w-md">Designing and developing modern, high-performance websites for brands and businesses. Focused on clean UI, fast builds, and real results.</p>
+  <p class="mt-2 t2 ">Designing and developing modern, high-performance websites for brands and businesses. Focused on clean UI, fast builds, and real results.</p>
   <div class="mt-7 flex flex-wrap gap-3">
    <a href="#projects" class="btn dk">View Work <b>→</b></a>
    <button class="btn ol" id="resumeBtn">Download Résumé</button>
@@ -196,16 +243,16 @@ button,a{max-width:100%;overflow-wrap:anywhere}
 </section>
 
 <div class="mq" aria-hidden="true"><div class="mqi"><span data-i18n="m0">Fast Load</span><span data-i18n="m1">Mobile Friendly</span><span data-i18n="m2">SEO Friendly</span><span data-i18n="m3">WhatsApp Button</span><span data-i18n="m4">Delivery in 2 Days</span><span data-i18n="m5">Shows Up on Google</span><span data-i18n="m6">No Hidden Charges</span><span data-i18n="m0">Fast Load</span><span data-i18n="m1">Mobile Friendly</span><span data-i18n="m2">SEO Friendly</span><span data-i18n="m3">WhatsApp Button</span><span data-i18n="m4">Delivery in 2 Days</span><span data-i18n="m5">Shows Up on Google</span><span data-i18n="m6">No Hidden Charges</span></div></div>
-<div class="w-full px-4 sm:px-6 lg:px-8 space-y-10 pb-12">
+<div class="w-full max-w-none mx-0 px-4 sm:px-8 lg:px-12 space-y-10 pb-12">
 
-<section class="sec open card p-5 rv" style="border-radius:24px" id="skills">
+<section class="sec open card p-5 rv w-full max-w-none mx-0 px-4 sm:px-8 lg:px-12" style="border-radius:24px" id="skills">
  <button class="sh" aria-expanded="true"><h2 class="text-lg font-semibold">SKILLS</h2><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
  <div class="sec-w"><div class="sec-i"><div class="flex flex-wrap gap-3 pt-4">
   <span class="pill">React</span><span class="pill">TypeScript</span><span class="pill">Next.js</span><span class="pill">Node.js</span><span class="pill">Tailwind</span><span class="pill">Figma</span><span class="pill">AWS</span><span class="pill">PostgreSQL</span><span class="pill">Motion</span><span class="pill">Three.js</span>
  </div></div></div>
 </section>
 
-<section class="sec open rv" id="projects">
+<section class="sec open rv w-full max-w-none mx-0 px-4 sm:px-8 lg:px-12" id="projects">
  <button class="sh" aria-expanded="true"><div><h2 class="text-2xl font-bold">Selected Projects</h2><p class="t2 text-sm">A bento of recent work</p></div><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
  <div class="sec-w"><div class="sec-i"><div class="pt-5 pb-3 px-1">
   <div class="flex flex-wrap gap-2 mb-5" id="chips" role="group" aria-label="Project filter"></div>
@@ -214,7 +261,7 @@ button,a{max-width:100%;overflow-wrap:anywhere}
  </div></div></div>
 </section>
 
-<section class="sec open rv" id="experience">
+<section class="sec open rv w-full max-w-none mx-0 px-4 sm:px-8 lg:px-12" id="experience">
  <button class="sh" aria-expanded="true"><h2 class="text-2xl font-bold">Experience</h2><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
  <div class="sec-w"><div class="sec-i"><div class="grid md:grid-cols-3 gap-6 pt-5 px-1">
   <div class="md:border-r pr-4" style="border-color:var(--bd)"><div class="flex items-center gap-2"><span class="dot"></span><b>2021 – Present</b></div><p class="mt-2 font-semibold">Individual Web Developer</p><p class="t2 text-sm mt-1">Building scalable websites, design systems, and fast SEO-friendly sites for local brands.</p></div>
@@ -223,7 +270,7 @@ button,a{max-width:100%;overflow-wrap:anywhere}
  </div></div></div>
 </section>
 
-<section class="sec open rv" id="services">
+<section class="sec open rv w-full max-w-none mx-0 px-4 sm:px-8 lg:px-12" id="services">
  <button class="sh" aria-expanded="true"><h2 class="text-2xl font-bold">Services</h2><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
  <div class="sec-w"><div class="sec-i"><div class="grid md:grid-cols-2 gap-5 pt-5 px-1">
   <article class="card tilt p-6"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--ac)" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><h3 class="mt-3 text-xl font-semibold">Website Development</h3><p class="t2 mt-2 text-sm">Building websites for brands across retail, food, fitness, hospitality, and healthcare. Delivering responsive, fast, SEO-optimized sites focused on performance and growth.</p></article>
@@ -231,40 +278,40 @@ button,a{max-width:100%;overflow-wrap:anywhere}
  </div></div></div>
 </section>
 
-<section class="sec open rv" id="process">
+<section class="sec open rv w-full max-w-none mx-0 px-4 sm:px-8 lg:px-12" id="process">
  <button class="sh" aria-expanded="true"><div><h2 class="text-2xl font-bold" data-i18n="prcH">How I Work</h2></div><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
  <div class="sec-w"><div class="sec-i"><div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-5 px-1"><div class="card p-5"><span class="lime" style="width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-weight:700">1</span><h3 class="mt-3 font-semibold" data-i18n="s1t">Talk</h3><p class="t2 text-sm mt-1" data-i18n="s1d">We chat on WhatsApp</p></div><div class="card p-5"><span class="lime" style="width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-weight:700">2</span><h3 class="mt-3 font-semibold" data-i18n="s2t">Design</h3><p class="t2 text-sm mt-1" data-i18n="s2d">I show you the design in 1 day</p></div><div class="card p-5"><span class="lime" style="width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-weight:700">3</span><h3 class="mt-3 font-semibold" data-i18n="s3t">Build</h3><p class="t2 text-sm mt-1" data-i18n="s3d">I build the site in 2-5 days</p></div><div class="card p-5"><span class="lime" style="width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-weight:700">4</span><h3 class="mt-3 font-semibold" data-i18n="s4t">Live</h3><p class="t2 text-sm mt-1" data-i18n="s4d">I take it live on Google</p></div></div></div></div>
 </section>
 
-<section class="sec open rv" id="testimonials">
+<section class="sec open rv w-full max-w-none mx-0 px-4 sm:px-8 lg:px-12" id="testimonials">
  <button class="sh" aria-expanded="true"><h2 class="text-2xl font-bold" data-i18n="tmH">What clients say</h2><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
  <div class="sec-w"><div class="sec-i"><div class="grid md:grid-cols-3 gap-5 pt-5 px-1" id="tm"></div></div></div>
 </section>
 
-<section class="sec open rv" id="speed">
+<section class="sec open rv w-full max-w-none mx-0 px-4 sm:px-8 lg:px-12" id="speed">
  <button class="sh" aria-expanded="true"><div><h2 class="text-2xl font-bold">Why Fast Matters</h2></div><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
  <div class="sec-w"><div class="sec-i"><p class="t2 pt-4 px-1" data-i18n="spP">My sites' target: Lighthouse 95+ score, loads in 1.5s.</p><div class="grid md:grid-cols-3 gap-4 pt-4 px-1"><div class="card p-5 text-center"><div class="text-3xl font-extrabold ac">95+</div><div class="font-semibold mt-1">Speed Score</div><div class="t2 text-xs mt-1">Target: 95+ Score</div></div><div class="card p-5 text-center"><div class="text-3xl font-extrabold ac">1.5s</div><div class="font-semibold mt-1">Load Time</div><div class="t2 text-xs mt-1">Target: 1.5s</div></div><div class="card p-5 text-center"><div class="text-3xl font-extrabold ac">100%</div><div class="font-semibold mt-1">Mobile Friendly</div><div class="t2 text-xs mt-1" data-i18n="spM">Every site works on phones</div></div></div></div></div>
 </section>
 
-<section class="sec open rv" id="pricing">
+<section class="sec open rv w-full max-w-none mx-0 px-4 sm:px-8 lg:px-12" id="pricing">
  <button class="sh" aria-expanded="true"><h2 class="text-2xl font-bold" data-i18n="prH">Simple Pricing — No hidden charges</h2><svg class="chev shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
  <div class="sec-w"><div class="sec-i"><div class="grid md:grid-cols-3 gap-5 pt-6 px-2 items-center" id="pr"></div></div></div>
 </section>
 
-<section class="sec open rv" id="calc">
+<section class="sec open rv w-full max-w-none mx-0 px-4 sm:px-8 lg:px-12" id="calc">
  <button class="sh" aria-expanded="true"><div><h2 class="text-2xl font-bold">Price Calculator</h2></div><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
  <div class="sec-w"><div class="sec-i"><div class="card p-6 mt-5 mx-1"><div class="grid md:grid-cols-2 gap-6"><div><label class="font-semibold text-sm" for="cPg">Pages</label><select id="cPg" class="in mt-2"><option value="4999">1 Page</option><option value="9999">5 Page</option><option value="19999">Full Website</option></select></div><fieldset style="border:0;padding:0;margin:0"><legend class="font-semibold text-sm">Features</legend><div class="mt-2 flex flex-wrap gap-4 text-sm"><label><input type="checkbox" class="cF" value="1500"> Logo</label><label><input type="checkbox" class="cF" value="2000"> SEO</label><label><input type="checkbox" class="cF" value="500"> WhatsApp Button</label></div></fieldset></div><div class="mt-6 text-3xl font-extrabold" id="cOut" aria-live="polite">Estimated: ₹4,999</div><p class="t2 text-sm mt-1" data-i18n="cN">This is not the final price, please confirm on WhatsApp</p><a id="cWa" class="btn lime mt-4" href="#" target="_blank" rel="noopener noreferrer">Confirm on WhatsApp</a></div></div></div>
 </section>
 
-<section class="sec open rv" id="faq">
+<section class="sec open rv w-full max-w-none mx-0 px-4 sm:px-8 lg:px-12" id="faq">
  <button class="sh" aria-expanded="true"><h2 class="text-2xl font-bold">Frequently Asked Questions</h2><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
  <div class="sec-w"><div class="sec-i"><div class="space-y-3 pt-5 px-1" id="fq"></div></div></div>
 </section>
-<section class="sec open rv" id="audit">
+<section class="sec open rv w-full max-w-none mx-0 px-4 sm:px-8 lg:px-12" id="audit">
  <button class="sh" aria-expanded="true"><div><h2 class="text-2xl font-bold">Free Website Audit</h2><p class="t2 text-sm" data-i18n="aS">Send your site link and get a free speed and SEO check.</p></div><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
  <div class="sec-w"><div class="sec-i"><form id="au" class="card p-6 mt-5 mx-1 flex flex-col sm:flex-row gap-3" novalidate><label for="aU" class="sr-only" style="position:absolute;left:-9999px">Website link</label><input id="aU" class="in" data-i18n-ph="aP" placeholder="Your website link (e.g. mysite.com)" inputmode="url" autocomplete="url"><button type="submit" class="btn lime justify-center" style="white-space:nowrap">Free Audit on WhatsApp</button><p id="aE" class="text-sm" style="color:#dc2626" role="alert"></p></form></div></div>
 </section>
-<section class="sec open rv" id="contact">
+<section class="sec open rv w-full max-w-none mx-0 px-4 sm:px-8 lg:px-12" id="contact">
  <button class="sh" aria-expanded="true"><div><h2 class="text-2xl font-bold">Start Your Project</h2></div><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
  <div class="sec-w"><div class="sec-i"><form id="cf" class="card p-6 mt-5 mx-1 grid gap-4" novalidate><div><label for="fN" class="text-sm font-semibold" data-i18n="fNl">Name</label><input id="fN" class="in mt-2" autocomplete="name" required></div><div><label for="fB" class="text-sm font-semibold" data-i18n="fBl">Business name</label><input id="fB" class="in mt-2" required></div><div><label for="fP" class="text-sm font-semibold">Budget</label><select id="fP" class="in mt-2"><option>₹4,999 Basic</option><option>₹9,999 Standard</option><option>₹19,999 Premium</option></select></div><p id="fE" class="text-sm" style="color:#dc2626" role="alert"></p><button type="submit" class="btn lime w-full justify-center" style="padding:16px;font-size:17px">Send on WhatsApp</button></form></div></div>
 </section>
