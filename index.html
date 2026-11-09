@@ -233,6 +233,50 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}
  .language-row{padding-left:clamp(16px,3vw,48px);padding-right:clamp(16px,3vw,48px)}
 }
 
+
+/* Compact, useful hero detail; replaces empty visual space without inventing client names */
+.hero-specialties{display:flex;align-items:center;flex-wrap:wrap;gap:9px 12px;margin-top:22px;color:var(--t2);font-size:12px;line-height:1.5}
+.hero-specialties .specialties-label{font-size:10px;font-weight:800;letter-spacing:1.5px;color:var(--ac)}
+.hero-specialties i{width:4px;height:4px;border-radius:50%;background:var(--ac);display:inline-block}
+@media(max-width:767px){.hero-specialties{gap:7px 9px;margin-top:16px;font-size:11px}.hero-specialties .specialties-label{width:100%}}
+
+/* Interactive supplied avatar — isolated additions only */
+.hero{position:relative}
+.avatar-orbit{position:absolute;z-index:5;top:8px;left:50%;width:370px;height:190px;transform:translateX(-50%);display:flex;align-items:flex-start;justify-content:center;pointer-events:none}
+.avatar-trigger{pointer-events:auto;position:relative;z-index:3;width:120px;height:120px;flex:0 0 120px;padding:0;border:0;border-radius:50%;background:transparent;cursor:pointer;animation:avatarFloat 3.8s ease-in-out infinite;filter:drop-shadow(0 0 10px rgba(90,220,105,.32));}
+.avatar-trigger img{display:block;width:120px;height:120px;object-fit:contain;border-radius:50%;}
+.avatar-trigger:focus-visible{outline:2px solid var(--ac);outline-offset:5px}
+.avatar-hint{position:absolute;top:123px;left:50%;transform:translateX(-50%);font-size:10px;font-weight:700;letter-spacing:.2px;color:var(--t2);white-space:nowrap;pointer-events:none}
+.avatar-chips{position:absolute;inset:0;pointer-events:none}
+.avatar-chip{position:absolute;left:50%;top:60px;max-width:112px;padding:5px 8px;border:1px solid rgba(100,220,110,.55);border-radius:999px;background:rgba(255,255,255,.94);color:#17251a;font-size:9px;font-weight:700;line-height:1.15;white-space:nowrap;box-shadow:0 3px 12px rgba(20,80,30,.12);opacity:0;transform:translate(-50%,-50%) scale(.25);transition:transform .42s cubic-bezier(.2,.8,.2,1),opacity .25s ease}
+.avatar-orbit.is-open .avatar-chip{opacity:1}
+.avatar-orbit.is-open .chip-top{transform:translate(-50%,-50%) translateY(-78px) scale(1)}
+.avatar-orbit.is-open .chip-upper-right{transform:translate(-50%,-50%) translate(136px,-48px) scale(1)}
+.avatar-orbit.is-open .chip-right{transform:translate(-50%,-50%) translate(148px,2px) scale(1)}
+.avatar-orbit.is-open .chip-lower-right{transform:translate(-50%,-50%) translate(136px,52px) scale(1)}
+.avatar-orbit.is-open .chip-bottom{transform:translate(-50%,-50%) translateY(82px) scale(1)}
+.avatar-orbit.is-open .chip-upper-left{transform:translate(-50%,-50%) translate(-136px,-48px) scale(1)}
+.avatar-orbit.is-open .chip-left{transform:translate(-50%,-50%) translate(-148px,2px) scale(1)}
+.avatar-orbit.is-open .chip-lower-left{transform:translate(-50%,-50%) translate(-136px,52px) scale(1)}
+@keyframes avatarFloat{0%,100%{translate:0 0}50%{translate:0 -7px}}
+@media(max-width:767px){
+ .avatar-orbit{position:relative;top:auto;left:auto;transform:none;width:250px;height:170px;margin:4px auto 0;flex:0 0 170px}
+ .avatar-trigger,.avatar-trigger img{width:80px;height:80px;flex-basis:80px}
+ .avatar-trigger{filter:drop-shadow(0 0 8px rgba(90,220,105,.3))}
+ .avatar-hint{top:82px;font-size:9px}
+ .avatar-chip{font-size:8px;padding:4px 6px;max-width:105px}
+ .avatar-orbit.is-open .chip-top{transform:translate(-50%,-50%) translateY(-62px) scale(1)}
+ .avatar-orbit{width:min(100%,300px);height:170px}
+ .avatar-orbit.is-open .chip-upper-right{transform:translate(-50%,-50%) translate(105px,-39px) scale(1)}
+ .avatar-orbit.is-open .chip-right{transform:translate(-50%,-50%) translate(112px,2px) scale(1)}
+ .avatar-orbit.is-open .chip-lower-right{transform:translate(-50%,-50%) translate(105px,43px) scale(1)}
+ .avatar-orbit.is-open .chip-bottom{transform:translate(-50%,-50%) translateY(64px) scale(1)}
+ .avatar-orbit.is-open .chip-upper-left{transform:translate(-50%,-50%) translate(-105px,-39px) scale(1)}
+ .avatar-orbit.is-open .chip-left{transform:translate(-50%,-50%) translate(-112px,2px) scale(1)}
+ .avatar-orbit.is-open .chip-lower-left{transform:translate(-50%,-50%) translate(-105px,43px) scale(1)}
+}
+@media(prefers-reduced-motion:reduce){.avatar-trigger,.avatar-chip{animation:none!important;transition:none!important}}
+
 </style>
 </head>
 <body class="w-full m-0 p-0 overflow-x-hidden">
@@ -243,7 +287,7 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}
 <div class="wrap">
 <header>
  <div class="navbar-inner w-full max-w-none mx-0 px-4 sm:px-8 lg:px-12 flex items-center justify-between gap-2 py-3">
-  <a href="#top" class="brand flex items-center gap-2 font-extrabold text-xl sm:text-2xl tracking-tight whitespace-nowrap shrink-0" style="color:var(--tx);text-decoration:none"><span>GAURAV</span><span class="logo-a" aria-hidden="true">A</span></a>
+  <a href="#top" class="brand flex items-center gap-2 font-extrabold text-xl sm:text-2xl tracking-tight whitespace-nowrap shrink-0" style="color:var(--tx);text-decoration:none"><span>GAURAV</span></a>
   <nav class="desktop-nav hidden md:flex items-center gap-6 text-sm font-semibold" aria-label="Main navigation"><a href="#top">Home</a><a href="#skills">About</a><a href="#projects">Projects</a><a href="#contact">Contact</a></nav>
   <div class="nav-actions flex items-center gap-2 sm:gap-4 shrink-0">
    <div class="theme-group flex items-center gap-2 sm:gap-3" role="group" aria-label="Theme">
@@ -274,6 +318,26 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}
    <div class="stat pr-5"><div class="text-2xl sm:text-3xl font-bold cnt" data-n="18">18+</div><div class="t2 text-sm">Projects</div></div>
    <div class="stat pr-5"><div class="text-2xl sm:text-3xl font-bold cnt" data-n="4">4+</div><div class="t2 text-sm">Years Experience</div></div>
    <div class="stat"><div class="text-2xl sm:text-3xl font-bold cnt" data-n="15">15+</div><div class="t2 text-sm">Happy Clients</div></div>
+  </div>
+  <div class="hero-specialties" aria-label="Website specialties">
+   <span class="specialties-label">BUILT FOR</span>
+   <span>Restaurants &amp; Cafés</span><i></i><span>Gyms &amp; Fitness</span><i></i><span>Salons &amp; Studios</span>
+  </div>
+ </div>
+ <div class="avatar-orbit" id="avatarOrbit">
+  <button class="avatar-trigger" id="avatarTrigger" type="button" aria-label="Show website features" aria-expanded="false">
+   <img src="avatar.png" width="120" height="120" alt="Robotics avatar" decoding="async">
+  </button>
+  <span class="avatar-hint">Tap Me 👆</span>
+  <div class="avatar-chips" id="avatarChips" aria-hidden="true">
+   <span class="avatar-chip chip-top" data-en="Clean Design" data-hi="Saaf Design">Clean Design</span>
+   <span class="avatar-chip chip-upper-right" data-en="2 Days Delivery" data-hi="2 Din Me Delivery">2 Days Delivery</span>
+   <span class="avatar-chip chip-right" data-en="Mobile Friendly" data-hi="Phone Me Mast Chalegi">Mobile Friendly</span>
+   <span class="avatar-chip chip-lower-right" data-en="Google SEO" data-hi="Google Pe Aayegi">Google SEO</span>
+   <span class="avatar-chip chip-bottom" data-en="WhatsApp Button" data-hi="WhatsApp Button">WhatsApp Button</span>
+   <span class="avatar-chip chip-upper-left" data-en="Free Support" data-hi="Free Support">Free Support</span>
+   <span class="avatar-chip chip-left" data-en="No Hidden Charges" data-hi="Koi Chhupa Charge Nahi">No Hidden Charges</span>
+   <span class="avatar-chip chip-lower-left" data-en="Best Price" data-hi="Best Daam">Best Price</span>
   </div>
  </div>
  <div class="stage">
@@ -459,6 +523,7 @@ function renderFq(){var op=$$(".fq.open").map(function(q){return q.id});$("#fq")
 renderTm();renderPr();renderFq();
 /* language switch */
 function setLang(l){LANG=l;WA=l==="en"?WA_EN:WA_HI;document.documentElement.lang=l==="en"?"en":"hi-Latn";
+ $$("#avatarChips [data-en]").forEach(function(el){el.textContent=el.getAttribute(l==="en"?"data-en":"data-hi")});
  $$("[data-l]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===l)});
  $$("[data-i18n]").forEach(function(el){el.textContent=tr(el.dataset.i18n)});
  $$("[data-i18n-ph]").forEach(function(el){el.placeholder=tr(el.dataset.i18nPh)});
@@ -466,6 +531,8 @@ function setLang(l){LANG=l;WA=l==="en"?WA_EN:WA_HI;document.documentElement.lang
  renderTm();renderPr();renderFq();render();calc();cpDraw();$("#fE").textContent="";$("#aE").textContent="";
  if(dlg.open)openP(cur)}
 $$("[data-l]").forEach(function(b){b.onclick=function(){setLang(b.dataset.l)}});
+/* avatar chips toggle */
+(function(){var orbit=$("#avatarOrbit"),trigger=$("#avatarTrigger"),chips=$("#avatarChips");if(!orbit||!trigger||!chips)return;trigger.addEventListener("click",function(){var open=orbit.classList.toggle("is-open");trigger.setAttribute("aria-expanded",String(open));chips.setAttribute("aria-hidden",String(!open))})})();
 /* section accordions (mobile) */
 $$(".sec>.sh").forEach(function(b){b.onclick=function(){if(innerWidth>767)return;var s=b.parentNode,o=s.classList.toggle("open");b.setAttribute("aria-expanded",o)}});
 function mob(){if(innerWidth<=767){$$(".sec").forEach(function(s){if(!s.dataset.init){s.classList.remove("open");s.dataset.init=1;$(".sh",s).setAttribute("aria-expanded","false")}})}}
